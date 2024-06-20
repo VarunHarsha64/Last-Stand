@@ -729,7 +729,7 @@ function gameEngine(){
 }
 
 
-gameEngine();
+
 
 function choosePowerUp() {
 
@@ -788,5 +788,35 @@ function zombieRunner(){
 
 }
 
-//other variables
+//main
+let preGameTimerReq;
+function preGame(){
+    setTimeout(()=>{
+        
+        const countdownContainer = document.querySelector('.pre-game');
+        const pElement = document.createElement('p');
+        document.querySelector('.button-89').style.display = 'none';
+        pElement.classList.add('countdown')
+        
+        let count = 3;
+        pElement.textContent = count;
+        count --;
+        countdownContainer.appendChild(pElement);
+
+        preGameTimerReq = setInterval(()=>{
+            pElement.textContent = count;
+            count--;
+
+            if (count < 0) {
+                clearInterval(preGameTimerReq);
+                document.querySelector('.pre-game').style.display = 'none';
+                gameEngine();
+            }
+            
+        },1000)
+        
+    },900)
+    
+}
+
 

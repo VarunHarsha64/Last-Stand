@@ -73,3 +73,7 @@ swapGuns = () => {
     document.getElementById('gun2').querySelector('img').src = gun1Image;
     document.getElementById('gun2').querySelector('.gun-info').innerHTML = gun1Info;
 }
+
+document.querySelector('.button-89').addEventListener('click',()=>{
+    preGame();
+})
